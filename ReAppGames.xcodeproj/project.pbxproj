@@ -8,13 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7ABC604B21D664E900F03A84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC604A21D664E900F03A84 /* AppDelegate.swift */; };
-		7ABC604D21D664E900F03A84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC604C21D664E900F03A84 /* ViewController.swift */; };
-		7ABC605021D664E900F03A84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABC604E21D664E900F03A84 /* Main.storyboard */; };
 		7ABC605321D664E900F03A84 /* ReAppGames.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC605121D664E900F03A84 /* ReAppGames.xcdatamodeld */; };
 		7ABC605521D664EB00F03A84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABC605421D664EB00F03A84 /* Assets.xcassets */; };
 		7ABC605821D664EB00F03A84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABC605621D664EB00F03A84 /* LaunchScreen.storyboard */; };
 		7ABC606321D664EB00F03A84 /* ReAppGamesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC606221D664EB00F03A84 /* ReAppGamesTests.swift */; };
 		7ABC606E21D664EB00F03A84 /* ReAppGamesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC606D21D664EB00F03A84 /* ReAppGamesUITests.swift */; };
+		7ABC607F21D66A1300F03A84 /* HomeGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC607E21D66A1300F03A84 /* HomeGamesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +36,6 @@
 /* Begin PBXFileReference section */
 		7ABC604721D664E900F03A84 /* ReAppGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReAppGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABC604A21D664E900F03A84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7ABC604C21D664E900F03A84 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7ABC604F21D664E900F03A84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7ABC605221D664E900F03A84 /* ReAppGames.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReAppGames.xcdatamodel; sourceTree = "<group>"; };
 		7ABC605421D664EB00F03A84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7ABC605721D664EB00F03A84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +46,7 @@
 		7ABC606921D664EB00F03A84 /* ReAppGamesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReAppGamesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABC606D21D664EB00F03A84 /* ReAppGamesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReAppGamesUITests.swift; sourceTree = "<group>"; };
 		7ABC606F21D664EB00F03A84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ABC607E21D66A1300F03A84 /* HomeGamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGamesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +97,12 @@
 		7ABC604921D664E900F03A84 /* ReAppGames */ = {
 			isa = PBXGroup;
 			children = (
+				7ABC607B21D6699200F03A84 /* Model */,
+				7ABC607C21D6699900F03A84 /* View */,
+				7ABC607D21D6699E00F03A84 /* Controller */,
 				7ABC604A21D664E900F03A84 /* AppDelegate.swift */,
-				7ABC604C21D664E900F03A84 /* ViewController.swift */,
-				7ABC604E21D664E900F03A84 /* Main.storyboard */,
-				7ABC605421D664EB00F03A84 /* Assets.xcassets */,
 				7ABC605621D664EB00F03A84 /* LaunchScreen.storyboard */,
+				7ABC605421D664EB00F03A84 /* Assets.xcassets */,
 				7ABC605921D664EB00F03A84 /* Info.plist */,
 				7ABC605121D664E900F03A84 /* ReAppGames.xcdatamodeld */,
 			);
@@ -126,6 +125,28 @@
 				7ABC606F21D664EB00F03A84 /* Info.plist */,
 			);
 			path = ReAppGamesUITests;
+			sourceTree = "<group>";
+		};
+		7ABC607B21D6699200F03A84 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7ABC607C21D6699900F03A84 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7ABC607D21D6699E00F03A84 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7ABC607E21D66A1300F03A84 /* HomeGamesViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +255,6 @@
 			files = (
 				7ABC605821D664EB00F03A84 /* LaunchScreen.storyboard in Resources */,
 				7ABC605521D664EB00F03A84 /* Assets.xcassets in Resources */,
-				7ABC605021D664E900F03A84 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,9 +279,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ABC604D21D664E900F03A84 /* ViewController.swift in Sources */,
 				7ABC604B21D664E900F03A84 /* AppDelegate.swift in Sources */,
 				7ABC605321D664E900F03A84 /* ReAppGames.xcdatamodeld in Sources */,
+				7ABC607F21D66A1300F03A84 /* HomeGamesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +317,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7ABC604E21D664E900F03A84 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7ABC604F21D664E900F03A84 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7ABC605621D664EB00F03A84 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

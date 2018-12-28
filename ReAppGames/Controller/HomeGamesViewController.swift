@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeGamesViewController.swift
 //  ReAppGames
 //
 //  Created by Leonardo Domingues on 12/28/18.
@@ -8,13 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class HomeGamesViewController: UICollectionViewController {
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .orange
+        collectionView.backgroundColor = .white
     }
-
-
+    
 }
-
