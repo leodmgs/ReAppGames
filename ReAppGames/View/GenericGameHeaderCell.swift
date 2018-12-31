@@ -24,7 +24,7 @@ class GenericGameHeaderCell: UICollectionViewCell {
         addSubview(titleLabel)
         
         titleLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
     }

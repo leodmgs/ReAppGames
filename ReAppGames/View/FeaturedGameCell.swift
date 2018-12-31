@@ -8,9 +8,10 @@
 
 import UIKit
 
-class FeaturedGameCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class FeaturedGameCell: UICollectionViewCell {
     
     let gameCellIdentifier = "game-cell-identifier"
+    private var startingScrollingOffset = CGPoint.zero
     
     let gamesCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -28,6 +29,7 @@ class FeaturedGameCell: UICollectionViewCell, UICollectionViewDelegate, UICollec
         gamesCollectionView.register(GameCell.self, forCellWithReuseIdentifier: gameCellIdentifier)
         gamesCollectionView.delegate = self
         gamesCollectionView.dataSource = self
+        
         setupViews()
     }
     
@@ -35,27 +37,73 @@ class FeaturedGameCell: UICollectionViewCell, UICollectionViewDelegate, UICollec
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupViews() {
+    private func setupViews() {
         addSubview(gamesCollectionView)
+        
         gamesCollectionView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0).isActive = true
         gamesCollectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
         gamesCollectionView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0).isActive = true
         gamesCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
-        gamesCollectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        //gamesCollectionView.isPagingEnabled = true
+        
+//        gamesCollectionView.isPagingEnabled = true
+        gamesCollectionView.showsHorizontalScrollIndicator = false
     }
+    
+}
+
+// Extension to conform with UICollectionView protocols
+
+extension FeaturedGameCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width - 40, height: 320)
+        return CGSize(width: self.bounds.width - 40, height: 320)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let gameCell = collectionView.dequeueReusableCell(withReuseIdentifier: gameCellIdentifier, for: indexPath)
-        return gameCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: gameCellIdentifier, for: indexPath)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+    }
+    
+    //@FIXME
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        startingScrollingOffset = scrollView.contentOffset
+    }
+    
+    //@FIXME
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        print("velocity: \(velocity)")
+        
+        let cellWidth = collectionView(
+            gamesCollectionView,
+            layout: gamesCollectionView.collectionViewLayout,
+            sizeForItemAt: IndexPath(item: 0, section: 0)
+        ).width
+        
+        let page: CGFloat
+        let offset = scrollView.contentOffset.x + scrollView.contentInset.left
+        let proposedPage = offset / max(1, cellWidth)
+        let snapPoint: CGFloat = 0.1
+        let snapDelta: CGFloat = offset > startingScrollingOffset.x ? (1 - snapPoint) : snapPoint
+        
+        if floor(proposedPage + snapDelta) == floor(proposedPage) {
+            page = floor(proposedPage)
+        }
+        else {
+            page = floor(proposedPage + 1)
+        }
+        
+        targetContentOffset.pointee = CGPoint(
+            x: (cellWidth * page) + (page * 10),
+            y: targetContentOffset.pointee.y
+        )
     }
     
 }
@@ -118,7 +166,6 @@ private class GameCell: UICollectionViewCell {
         thumbnailImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
         thumbnailImage.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0).isActive = true
         thumbnailImage.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        
         
     }
     
