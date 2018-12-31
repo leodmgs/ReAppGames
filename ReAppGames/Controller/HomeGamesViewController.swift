@@ -23,6 +23,14 @@ class HomeGamesViewController: UICollectionViewController, UICollectionViewDeleg
     func setupViews() {
         collectionView.backgroundColor = .white
         collectionView.register(FeaturedGameCell.self, forCellWithReuseIdentifier: genericGameCellIdentifier)
+        setupNavigationBar()
+    }
+    
+    private func setupNavigationBar() {
+        guard let navBar = navigationController?.navigationBar else { return }
+        navBar.isTranslucent = false
+        navBar.tintColor = .white
+        navigationItem.title = "Games"
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -51,7 +59,7 @@ class HomeGamesViewController: UICollectionViewController, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: 70)
+        return CGSize(width: UIScreen.main.bounds.width, height: 60)
     }
     
 }
