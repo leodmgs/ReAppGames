@@ -1,5 +1,5 @@
 //
-//  GenericGameHeaderCell.swift
+//  GenericAppHeaderCell.swift
 //  ReAppGames
 //
 //  Created by Leonardo Domingues on 12/28/18.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class GenericGameHeaderCell: UICollectionViewCell {
+class GenericAppHeaderCell: UICollectionViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Games"
+        label.text = "Apps"
         label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
         return label
     }()

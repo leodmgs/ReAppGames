@@ -1,5 +1,5 @@
 //
-//  HomeGamesViewController.swift
+//  HomeAppViewController.swift
 //  ReAppGames
 //
 //  Created by Leonardo Domingues on 12/28/18.
@@ -8,21 +8,21 @@
 
 import UIKit
 
-class HomeGamesViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class HomeAppViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    private let genericGameCellIdentifier = "generic-game-cell"
-    private let gameHeaderCellIdentifier = "game-header-cell-identifier"
+    private let genericAppCellIdentifier = "generic-app-cell"
+    private let appHeaderCellIdentifier = "app-header-cell-identifier"
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        collectionView.register(GenericGameHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: gameHeaderCellIdentifier)
+        collectionView.register(GenericAppHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: appHeaderCellIdentifier)
     }
     
     func setupViews() {
         collectionView.backgroundColor = .white
-        collectionView.register(FeaturedGameCell.self, forCellWithReuseIdentifier: genericGameCellIdentifier)
+        collectionView.register(FeaturedAppCell.self, forCellWithReuseIdentifier: genericAppCellIdentifier)
         setupNavigationBar()
     }
     
@@ -30,12 +30,12 @@ class HomeGamesViewController: UICollectionViewController, UICollectionViewDeleg
         guard let navBar = navigationController?.navigationBar else { return }
         navBar.isTranslucent = false
         navBar.tintColor = .white
-        navigationItem.title = "Games"
+        navigationItem.title = "Apps"
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let featuredGameCell = collectionView.dequeueReusableCell(withReuseIdentifier: genericGameCellIdentifier, for: indexPath)
-        return featuredGameCell
+        let featuredAppCell = collectionView.dequeueReusableCell(withReuseIdentifier: genericAppCellIdentifier, for: indexPath)
+        return featuredAppCell
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -52,7 +52,7 @@ class HomeGamesViewController: UICollectionViewController, UICollectionViewDeleg
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: gameHeaderCellIdentifier, for: indexPath)
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: appHeaderCellIdentifier, for: indexPath)
             return header
         }
         fatalError("View for supplementary element was not defined")

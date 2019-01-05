@@ -1,5 +1,5 @@
 //
-//  GamesDatasource.swift
+//  App.swift
 //  ReAppGames
 //
 //  Created by Leonardo Domingues on 12/28/18.
@@ -8,10 +8,7 @@
 
 import Foundation
 
-class GamesDatasource {
-    
-    let featuredGames: [Game] = {
-        return []
-    }()
-    
+struct App {
+    let name: String
+    let category: String
 }

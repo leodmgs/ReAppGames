@@ -1,5 +1,5 @@
 //
-//  FeaturedGameCell.swift
+//  FeaturedAppCell.swift
 //  ReAppGames
 //
 //  Created by Leonardo Domingues on 12/28/18.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class FeaturedGameCell: UICollectionViewCell {
+class FeaturedAppCell: UICollectionViewCell {
     
-    let gameCellIdentifier = "game-cell-identifier"
+    let appCellIdentifier = "app-cell-identifier"
     private var startingScrollingOffset = CGPoint.zero
     
-    let gamesCollectionView: UICollectionView = {
+    let appCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
@@ -26,9 +26,9 @@ class FeaturedGameCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        gamesCollectionView.register(GameCell.self, forCellWithReuseIdentifier: gameCellIdentifier)
-        gamesCollectionView.delegate = self
-        gamesCollectionView.dataSource = self
+        appCollectionView.register(AppCell.self, forCellWithReuseIdentifier: appCellIdentifier)
+        appCollectionView.delegate = self
+        appCollectionView.dataSource = self
         
         setupViews()
     }
@@ -38,22 +38,22 @@ class FeaturedGameCell: UICollectionViewCell {
     }
     
     private func setupViews() {
-        addSubview(gamesCollectionView)
+        addSubview(appCollectionView)
         
-        gamesCollectionView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0).isActive = true
-        gamesCollectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
-        gamesCollectionView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0).isActive = true
-        gamesCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        appCollectionView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0).isActive = true
+        appCollectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        appCollectionView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0).isActive = true
+        appCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
         
-//        gamesCollectionView.isPagingEnabled = true
-        gamesCollectionView.showsHorizontalScrollIndicator = false
+//        appCollectionView.isPagingEnabled = true
+        appCollectionView.showsHorizontalScrollIndicator = false
     }
     
 }
 
 // Extension to conform with UICollectionView protocols
 
-extension FeaturedGameCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate {
+extension FeaturedAppCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
@@ -64,7 +64,7 @@ extension FeaturedGameCell: UICollectionViewDelegate, UICollectionViewDelegateFl
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: gameCellIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: appCellIdentifier, for: indexPath)
         return cell
     }
     
@@ -79,11 +79,10 @@ extension FeaturedGameCell: UICollectionViewDelegate, UICollectionViewDelegateFl
     
     //@FIXME
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        print("velocity: \(velocity)")
         
         let cellWidth = collectionView(
-            gamesCollectionView,
-            layout: gamesCollectionView.collectionViewLayout,
+            appCollectionView,
+            layout: appCollectionView.collectionViewLayout,
             sizeForItemAt: IndexPath(item: 0, section: 0)
         ).width
         
@@ -108,7 +107,7 @@ extension FeaturedGameCell: UICollectionViewDelegate, UICollectionViewDelegateFl
     
 }
 
-private class GameCell: UICollectionViewCell {
+private class AppCell: UICollectionViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -146,10 +145,10 @@ private class GameCell: UICollectionViewCell {
     func setupViews() {
         translatesAutoresizingMaskIntoConstraints = false
         
-        let gameCategory = "Limited time"
-        let gameName = "Asphalt 9 - Legends"
-        let gamePromo = "Exclusive App Store offer"
-        titleLabel.attributedText = gameInfoTextFormatted(category: gameCategory, nameOfGame: gameName, promo: gamePromo)
+        let appCategory = "Limited time"
+        let appName = "Asphalt 9 - Legends"
+        let appPromo = "Exclusive App Store offer"
+        titleLabel.attributedText = appTextInfoFormatted(category: appCategory, appName: appName, promo: appPromo)
         
         addSubview(separatorLine)
         addSubview(titleLabel)
@@ -169,13 +168,13 @@ private class GameCell: UICollectionViewCell {
         
     }
     
-    private func gameInfoTextFormatted(category: String, nameOfGame: String, promo: String = "") -> NSMutableAttributedString {
-        let gameCategoryLineBreak = "\(category.uppercased())\n"
+    private func appTextInfoFormatted(category: String, appName: String, promo: String = "") -> NSMutableAttributedString {
+        let appCategoryLineBreak = "\(category.uppercased())\n"
         let systemDefaultBlueColor = UIColor(red: CGFloat(0.0), green: CGFloat(122.0/255), blue: CGFloat(1.0), alpha: 1)
-        let attributedString = NSMutableAttributedString(string: gameCategoryLineBreak, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12), NSAttributedString.Key.foregroundColor: systemDefaultBlueColor])
+        let attributedString = NSMutableAttributedString(string: appCategoryLineBreak, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12), NSAttributedString.Key.foregroundColor: systemDefaultBlueColor])
         
-        let gameNameLineBreak = "\(nameOfGame)\n"
-        attributedString.append(NSAttributedString(string: gameNameLineBreak, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22)]))
+        let appNameLineBreak = "\(appName)\n"
+        attributedString.append(NSAttributedString(string: appNameLineBreak, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22)]))
         
         attributedString.append(NSAttributedString(string: promo, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22), NSAttributedString.Key.foregroundColor: UIColor.lightGray]))
 

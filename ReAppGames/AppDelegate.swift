@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         let appFlowLayout = UICollectionViewFlowLayout()
-        let homeGamesViewController = HomeGamesViewController(collectionViewLayout: appFlowLayout)
-        window?.rootViewController = UINavigationController(rootViewController: homeGamesViewController)
+        let homeAppViewController = HomeAppViewController(collectionViewLayout: appFlowLayout)
+        window?.rootViewController = UINavigationController(rootViewController: homeAppViewController)
         // Override point for customization after application launch.
         return true
     }
