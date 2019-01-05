@@ -10,5 +10,8 @@ import Foundation
 
 struct App {
     let name: String
+    let shortDescription: String
     let category: String
+    let price: Double
+    let inAppPurchases: Bool
 }

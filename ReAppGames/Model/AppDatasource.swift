@@ -10,7 +10,7 @@ import Foundation
 
 class AppDatasource {
     
-    let featuredGames: [App] = {
+    let featuredApps: [App] = {
         return []
     }()
     
