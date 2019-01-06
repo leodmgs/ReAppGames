@@ -17,13 +17,13 @@ class HomeAppViewController: UICollectionViewController, UICollectionViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        collectionView.register(GenericAppHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: appHeaderCellIdentifier)
     }
     
     func setupViews() {
         collectionView.backgroundColor = .white
+        collectionView.register(GenericAppHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: appHeaderCellIdentifier)
         collectionView.register(FeaturedAppCell.self, forCellWithReuseIdentifier: genericAppCellIdentifier)
-        setupNavigationBar()
+//        setupNavigationBar()
     }
     
     private func setupNavigationBar() {
