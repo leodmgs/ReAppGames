@@ -28,7 +28,7 @@ class HomeAppViewController: UICollectionViewController, UICollectionViewDelegat
         collectionView.backgroundColor = .white
         collectionView.register(GenericAppHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: appHeaderCellIdentifier)
         collectionView.register(FeaturedAppCell.self, forCellWithReuseIdentifier: genericAppCellIdentifier)
-//        setupNavigationBar()
+        setupNavigationBar()
     }
     
     private func setupNavigationBar() {
