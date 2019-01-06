@@ -18,14 +18,29 @@ class GenericAppHeaderCell: UICollectionViewCell {
         return label
     }()
     
+    let userImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "steve-jobs")
+        imageView.layer.cornerRadius = 24
+        imageView.clipsToBounds = true
+        return imageView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         addSubview(titleLabel)
+        addSubview(userImageView)
         
         titleLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
         titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        
+        userImageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
+        userImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        userImageView.widthAnchor.constraint(equalToConstant: 48).isActive = true
+        userImageView.heightAnchor.constraint(equalToConstant: 48).isActive = true
         
     }
     
