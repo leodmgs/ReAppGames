@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GenericAppHeaderCell: UICollectionViewCell {
+class GenericHeaderCell: UICollectionViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
