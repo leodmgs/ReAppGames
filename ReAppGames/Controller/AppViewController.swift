@@ -10,14 +10,11 @@ import UIKit
 
 
 
-class HomeAppViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class AppViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     private let genericAppCellIdentifier = "generic-app-cell"
     private let appHeaderCellIdentifier = "app-header-cell-identifier"
     private let separatorLineNavBarLayer = CALayer()
-    
-    //@FIXME
-    let customGrayColor = UIColor(red: CGFloat(220.0/255), green: CGFloat(220.0/255), blue: CGFloat(220.0/255), alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +56,7 @@ class HomeAppViewController: UICollectionViewController, UICollectionViewDelegat
         UIView.animate(withDuration: 0.2, animations: {
             self.navigationItem.titleView?.alpha = 1
         })
-        self.separatorLineNavBarLayer.backgroundColor = customGrayColor.cgColor
+        self.separatorLineNavBarLayer.backgroundColor = UIColor.lightGray.cgColor
     }
     
     private func disableNavBarViews() {
