@@ -13,8 +13,8 @@ class GroupedAppCollectionCell: DatasourceCell {
     override var dataItem: Any? {
         didSet {
             //@FIXME
-            guard let app = dataItem as? String else { return }
-            print("GroupedCell: \(app)")
+            guard let app = dataItem as? [String] else { return }
+            print("GroupedAppCollectionCell: \(app)")
         }
     }
     
@@ -29,6 +29,7 @@ class GroupedAppCollectionCell: DatasourceCell {
     
     override func setupViews() {
         super.setupViews()
+        
         backgroundColor = .blue
         layer.cornerRadius = 10
         clipsToBounds = true

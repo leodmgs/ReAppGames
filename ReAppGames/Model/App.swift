@@ -12,6 +12,6 @@ struct App {
     let name: String
     let shortDescription: String
     let category: String
-    let price: Double
+    let price: Float
     let inAppPurchases: Bool
 }

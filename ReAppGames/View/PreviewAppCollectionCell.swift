@@ -14,7 +14,7 @@ class PreviewAppCollectionCell: DatasourceCell {
         didSet {
             //@FIXME
             guard let app = dataItem as? String else { return }
-            print("PreviewCell: \(app)")
+            print("PreviewAppCollectionCell: \(app)")
         }
     }
     
