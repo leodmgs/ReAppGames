@@ -10,11 +10,10 @@ import UIKit
 
 class GroupedAppCollectionCell: DatasourceCell {
     
-    override var dataItem: Any? {
+    override var appDatasourceItem: Any? {
         didSet {
             //@FIXME
-            guard let app = dataItem as? [String] else { return }
-            print("GroupedAppCollectionCell: \(app)")
+            guard let app = appDatasourceItem as? [String] else { return }
         }
     }
     
@@ -30,9 +29,7 @@ class GroupedAppCollectionCell: DatasourceCell {
     override func setupViews() {
         super.setupViews()
         
-        backgroundColor = .blue
-        layer.cornerRadius = 10
-        clipsToBounds = true
+        appCollectionView.backgroundColor = .blue
     }
     
 }

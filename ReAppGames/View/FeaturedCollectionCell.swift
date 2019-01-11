@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeaturedAppCollectionCell: UICollectionViewCell {
+class FeaturedCollectionCell: UICollectionViewCell {
     
     let appCellIdentifier = "app-cell-identifier"
     private var startingScrollingOffset = CGPoint.zero
@@ -53,7 +53,7 @@ class FeaturedAppCollectionCell: UICollectionViewCell {
 
 // Extension to conform with UICollectionView protocols
 
-extension FeaturedAppCollectionCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate {
+extension FeaturedCollectionCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5

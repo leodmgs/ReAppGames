@@ -10,10 +10,10 @@ import UIKit
 
 class PreviewAppCollectionCell: DatasourceCell {
     
-    override var dataItem: Any? {
+    override var appDatasourceItem: Any? {
         didSet {
             //@FIXME
-            guard let app = dataItem as? String else { return }
+            guard let app = appDatasourceItem as? String else { return }
             print("PreviewAppCollectionCell: \(app)")
         }
     }

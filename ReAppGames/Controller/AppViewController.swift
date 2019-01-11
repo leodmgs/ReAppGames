@@ -23,8 +23,8 @@ class AppViewController: UICollectionViewController, UICollectionViewDelegateFlo
     
     func setupViews() {
         collectionView.backgroundColor = .white
-        collectionView.register(GenericHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: appHeaderCellIdentifier)
-        collectionView.register(FeaturedAppCell.self, forCellWithReuseIdentifier: genericAppCellIdentifier)
+        collectionView.register(HeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: appHeaderCellIdentifier)
+        collectionView.register(FeaturedAppCollectionCell.self, forCellWithReuseIdentifier: genericAppCellIdentifier)
         setupNavigationBar()
     }
     

@@ -10,6 +10,13 @@ import UIKit
 
 class FeaturedAppCell: UICollectionViewCell {
     
+    var app: App? {
+        didSet {
+            guard let appObject = app else { return }
+            titleLabel.attributedText = appTextInfoFormatted(category: appObject.category, appName: appObject.name, promo: appObject.shortDescription)
+        }
+    }
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -20,7 +27,7 @@ class FeaturedAppCell: UICollectionViewCell {
     let thumbnailImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "asphalt-9")
+        imageView.backgroundColor = .orange
         imageView.contentMode = .scaleToFill
         imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true
@@ -44,14 +51,9 @@ class FeaturedAppCell: UICollectionViewCell {
     }
     
     func setupViews() {
-        let appCategory = "Limited time"
-        let appName = "Asphalt 9 - Legends"
-        let appPromo = "Exclusive App Store offer"
-        titleLabel.attributedText = appTextInfoFormatted(category: appCategory, appName: appName, promo: appPromo)
-        
         addSubview(separatorLine)
         addSubview(titleLabel)
-        //addSubview(thumbnailImage)
+        addSubview(thumbnailImage)
         
         separatorLine.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0).isActive = true
         separatorLine.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0).isActive = true
@@ -60,10 +62,10 @@ class FeaturedAppCell: UICollectionViewCell {
         
         titleLabel.topAnchor.constraint(equalTo: separatorLine.bottomAnchor, constant: 5).isActive = true
         
-//        thumbnailImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0).isActive = true
-//        thumbnailImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
-//        thumbnailImage.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0).isActive = true
-//        thumbnailImage.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        thumbnailImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0).isActive = true
+        thumbnailImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
+        thumbnailImage.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0).isActive = true
+        thumbnailImage.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
     }
     

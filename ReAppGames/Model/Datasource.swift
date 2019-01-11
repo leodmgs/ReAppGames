@@ -24,6 +24,10 @@ class Datasource: NSObject {
         return []
     }
     
+    func headerClasses() -> Any? {
+        return nil
+    }
+    
     func item(_ indexPath: IndexPath) -> Any? {
         if let dataObject = data {
             return dataObject[indexPath.item]

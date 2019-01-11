@@ -10,16 +10,14 @@ import UIKit
 
 class FeaturedAppCollectionCell: DatasourceCell {
     
-    override var dataItem: Any? {
+    override var appDatasourceItem: Any? {
         didSet {
-            //@FIXME
-            guard let apps = dataItem as? [String] else { return }
-            print("FeaturedAppCollectionCell received \(apps.count) App data: ")
-            for app in apps {
-                print("\(app)")
-            }
+            guard let featuredApps = appDatasourceItem as? [String] else { return }
+            featuredAppsDatasource = featuredApps
         }
     }
+    
+    var featuredAppsDatasource: [String] = []
     
     let appNameLabel: UILabel = {
         let label = UILabel()
@@ -58,17 +56,18 @@ class FeaturedAppCollectionCell: DatasourceCell {
 
 extension FeaturedAppCollectionCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return featuredAppsDatasource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let featuredApp = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(FeaturedAppCell.self), for: indexPath) as! FeaturedAppCell
-        return featuredApp
+        let featuredAppCell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(FeaturedAppCell.self), for: indexPath) as! FeaturedAppCell
+        
+        let appName = featuredAppsDatasource[indexPath.item]
+        let app = App(appName: appName, category: "Limited time", price: 0, shortDescription: "Exclusive App Store offer")
+        featuredAppCell.app = app
+        
+        return featuredAppCell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

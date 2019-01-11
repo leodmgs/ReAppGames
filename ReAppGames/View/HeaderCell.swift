@@ -13,7 +13,7 @@ class HeaderCell: UICollectionViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Apps"
+        label.text = "Header"
         label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
         return label
     }()

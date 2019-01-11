@@ -14,4 +14,12 @@ struct App {
     let category: String
     let price: Float
     let inAppPurchases: Bool
+    
+    init(appName: String, category: String, price: Float, shortDescription: String = "") {
+        self.name = appName
+        self.category = category
+        self.price = price
+        self.shortDescription = shortDescription
+        self.inAppPurchases = false
+    }
 }

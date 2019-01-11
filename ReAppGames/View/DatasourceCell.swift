@@ -10,7 +10,7 @@ import UIKit
 
 class DatasourceCell: UICollectionViewCell {
     
-    var dataItem: Any?
+    var appDatasourceItem: Any?
     weak var controller: AppDatasourceController?
     
     let appCollectionView: UICollectionView = {
