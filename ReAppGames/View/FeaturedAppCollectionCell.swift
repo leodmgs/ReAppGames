@@ -41,6 +41,7 @@ class FeaturedAppCollectionCell: DatasourceCell {
         appCollectionView.register(FeaturedAppCell.self, forCellWithReuseIdentifier: NSStringFromClass(FeaturedAppCell.self))
         appCollectionView.delegate = self
         appCollectionView.dataSource = self
+        setCollectionViewConstraints(constantLeft: 0, constantTop: 0, constantRight: 0, constantBottom: 0, leftAnchor: self.leftAnchor, topAnchor: self.topAnchor, rightAnchor: self.rightAnchor, bottomAnchor: self.bottomAnchor)
         
         addSubview(appNameLabel)
         
