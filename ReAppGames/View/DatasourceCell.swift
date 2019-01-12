@@ -34,10 +34,15 @@ class DatasourceCell: UICollectionViewCell {
     
     func setupViews() {
         addSubview(appCollectionView)
-        appCollectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
-        appCollectionView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0).isActive = true
-        appCollectionView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0).isActive = true
-        appCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+    }
+    
+    func setCollectionViewConstraints(constantLeft: CGFloat, constantTop: CGFloat, constantRight: CGFloat, constantBottom: CGFloat, leftAnchor: NSLayoutAnchor<NSLayoutXAxisAnchor>, topAnchor: NSLayoutAnchor<NSLayoutYAxisAnchor>, rightAnchor: NSLayoutAnchor<NSLayoutXAxisAnchor>, bottomAnchor: NSLayoutAnchor<NSLayoutYAxisAnchor>) {
+        
+        appCollectionView.topAnchor.constraint(equalTo: topAnchor, constant: constantTop).isActive = true
+        appCollectionView.leftAnchor.constraint(equalTo: leftAnchor, constant: constantLeft).isActive = true
+        appCollectionView.rightAnchor.constraint(equalTo: rightAnchor, constant: constantRight).isActive = true
+        appCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: constantBottom).isActive = true
+        
     }
     
 }
