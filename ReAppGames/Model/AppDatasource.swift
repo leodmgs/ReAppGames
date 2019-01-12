@@ -14,8 +14,8 @@ class AppDatasource: Datasource {
     
     var dataApp: [[String]] = [
         ["Twitter", "Whatsapp", "Instagram", "Youtube", "Uber"],
-        ["Runastic", "Lifesum", "Pocket", "Facetune", "TouchRetouch", "Afterlight", "Full Fitness"],
-        ["Duolingo", "Udemy", "Udacity", "Coursera", "English", "LinkedIn", "Nike", "IFood"]
+        ["Runastic", "Lifesum", "Pocket", "Facetune", "TouchRetouch", "Afterlight", "Full Fitness", "Coursera", "English", "LinkedIn", "Nike", "IFood"],
+        ["Duolingo", "Udemy", "Udacity"]
     ]
     
     let availableCellClasses: [DatasourceCell.Type] = [
@@ -39,7 +39,7 @@ class AppDatasource: Datasource {
     }
     
     override func item(_ indexPath: IndexPath) -> Any? {
-        return dataApp[indexPath.item]
+        return dataApp[indexPath.section]
     }
     
 }
