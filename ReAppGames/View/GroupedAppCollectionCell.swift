@@ -20,15 +20,6 @@ class GroupedAppCollectionCell: DatasourceCell {
     
     var groupedAppsDatasource: [String] = []
     
-    let sectionTitle: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
-        label.backgroundColor = .cyan
-        return label
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()

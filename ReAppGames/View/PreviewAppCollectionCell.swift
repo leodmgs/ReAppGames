@@ -13,10 +13,13 @@ class PreviewAppCollectionCell: DatasourceCell {
     override var appDatasourceItem: Any? {
         didSet {
             //@FIXME
-            guard let app = appDatasourceItem as? String else { return }
-            print("PreviewAppCollectionCell: \(app)")
+            guard let apps = appDatasourceItem as? [String] else { return }
+            previewAppsCollection = apps
+            sectionTitle.text = "Get Productive"
         }
     }
+    
+    var previewAppsCollection: [String] = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,9 +32,40 @@ class PreviewAppCollectionCell: DatasourceCell {
     
     override func setupViews() {
         super.setupViews()
-        backgroundColor = .green
-        layer.cornerRadius = 10
-        clipsToBounds = true
+        appCollectionView.register(PreviewAppCell.self, forCellWithReuseIdentifier: NSStringFromClass(PreviewAppCell.self))
+        appCollectionView.delegate = self
+        appCollectionView.dataSource = self
+        
+        addSubview(sectionTitle)
+        sectionTitle.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
+        sectionTitle.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        
+        setCollectionViewConstraints(constantLeft: 0, constantTop: 0, constantRight: 0, constantBottom: 0, leftAnchor: self.leftAnchor, topAnchor: sectionTitle.bottomAnchor, rightAnchor: self.rightAnchor, bottomAnchor: self.bottomAnchor)
+    }
+    
+}
+
+extension PreviewAppCollectionCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let previewCell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(PreviewAppCell.self), for: indexPath) as! PreviewAppCell
+        let app = App(appName: previewAppsCollection[indexPath.row], category: "Education", price: 0)
+        previewCell.app = app
+        return previewCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.previewAppsCollection.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth = UIScreen.main.bounds.width - 40
+        let cellHeight: CGFloat = 300
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
     
 }

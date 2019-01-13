@@ -23,6 +23,22 @@ class DatasourceCell: UICollectionViewCell {
         return collectionView
     }()
     
+    let sectionTitle: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+        return label
+    }()
+    
+    let separatorLine: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        //view.backgroundColor = UIColor(red: CGFloat(220.0/255), green: CGFloat(220.0/255), blue: CGFloat(220.0/255), alpha: 1)
+        view.backgroundColor = .lightGray
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -34,6 +50,13 @@ class DatasourceCell: UICollectionViewCell {
     
     func setupViews() {
         addSubview(appCollectionView)
+        addSubview(separatorLine)
+        
+        separatorLine.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
+        separatorLine.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
+        separatorLine.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        separatorLine.heightAnchor.constraint(equalToConstant: 0.3).isActive = true
+        
     }
     
     func setCollectionViewConstraints(constantLeft: CGFloat, constantTop: CGFloat, constantRight: CGFloat, constantBottom: CGFloat, leftAnchor: NSLayoutAnchor<NSLayoutXAxisAnchor>, topAnchor: NSLayoutAnchor<NSLayoutYAxisAnchor>, rightAnchor: NSLayoutAnchor<NSLayoutXAxisAnchor>, bottomAnchor: NSLayoutAnchor<NSLayoutYAxisAnchor>) {

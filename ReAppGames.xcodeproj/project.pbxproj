@@ -7,17 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7ABB975E21E96FB5009D4384 /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABB975D21E96FB4009D4384 /* Datasource.swift */; };
+		7ABB976721E96FBF009D4384 /* FeaturedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABB975F21E96FBF009D4384 /* FeaturedCollectionCell.swift */; };
+		7ABB976821E96FBF009D4384 /* DatasourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABB976021E96FBF009D4384 /* DatasourceCell.swift */; };
+		7ABB976921E96FBF009D4384 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABB976121E96FBF009D4384 /* HeaderCell.swift */; };
+		7ABB976A21E96FBF009D4384 /* DefaultAppCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABB976221E96FBF009D4384 /* DefaultAppCollectionCell.swift */; };
+		7ABB976B21E96FBF009D4384 /* GroupedAppCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABB976321E96FBF009D4384 /* GroupedAppCollectionCell.swift */; };
+		7ABB976C21E96FBF009D4384 /* PreviewAppCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABB976421E96FBF009D4384 /* PreviewAppCollectionCell.swift */; };
+		7ABB976D21E96FBF009D4384 /* GroupedAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABB976521E96FBF009D4384 /* GroupedAppCell.swift */; };
+		7ABB976E21E96FBF009D4384 /* FeaturedAppCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABB976621E96FBF009D4384 /* FeaturedAppCollectionCell.swift */; };
+		7ABB977621E96FCF009D4384 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABB976F21E96FCF009D4384 /* AppViewController.swift */; };
+		7ABB977721E96FCF009D4384 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABB977021E96FCF009D4384 /* GamesViewController.swift */; };
+		7ABB977821E96FCF009D4384 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABB977121E96FCF009D4384 /* TabBarController.swift */; };
+		7ABB977921E96FCF009D4384 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABB977221E96FCF009D4384 /* TodayViewController.swift */; };
+		7ABB977A21E96FCF009D4384 /* UpdatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABB977321E96FCF009D4384 /* UpdatesViewController.swift */; };
+		7ABB977B21E96FCF009D4384 /* AppDatasourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABB977421E96FCF009D4384 /* AppDatasourceController.swift */; };
+		7ABB977C21E96FCF009D4384 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABB977521E96FCF009D4384 /* SearchViewController.swift */; };
+		7ABB977E21E97024009D4384 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABB977D21E97024009D4384 /* LaunchScreen.storyboard */; };
+		7ABB978021EBD904009D4384 /* PreviewAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABB977F21EBD904009D4384 /* PreviewAppCell.swift */; };
+		7ABB978221EBEBC4009D4384 /* Helpers in Resources */ = {isa = PBXBuildFile; fileRef = 7ABB978121EBEBC4009D4384 /* Helpers */; };
 		7ABC604B21D664E900F03A84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC604A21D664E900F03A84 /* AppDelegate.swift */; };
 		7ABC605321D664E900F03A84 /* ReAppGames.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC605121D664E900F03A84 /* ReAppGames.xcdatamodeld */; };
 		7ABC605521D664EB00F03A84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABC605421D664EB00F03A84 /* Assets.xcassets */; };
-		7ABC605821D664EB00F03A84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABC605621D664EB00F03A84 /* LaunchScreen.storyboard */; };
 		7ABC606321D664EB00F03A84 /* ReAppGamesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC606221D664EB00F03A84 /* ReAppGamesTests.swift */; };
 		7ABC606E21D664EB00F03A84 /* ReAppGamesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC606D21D664EB00F03A84 /* ReAppGamesUITests.swift */; };
-		7ABC607F21D66A1300F03A84 /* HomeAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC607E21D66A1300F03A84 /* HomeAppViewController.swift */; };
 		7ABC608321D66E0800F03A84 /* FeaturedAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC608221D66E0800F03A84 /* FeaturedAppCell.swift */; };
 		7ABC608521D66E7700F03A84 /* AppDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC608421D66E7700F03A84 /* AppDatasource.swift */; };
 		7ABC608721D66ECE00F03A84 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC608621D66ECE00F03A84 /* App.swift */; };
-		7ABC608B21D6787800F03A84 /* GenericAppHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC608A21D6787800F03A84 /* GenericAppHeaderCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,11 +54,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7ABB975D21E96FB4009D4384 /* Datasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
+		7ABB975F21E96FBF009D4384 /* FeaturedCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedCollectionCell.swift; sourceTree = "<group>"; };
+		7ABB976021E96FBF009D4384 /* DatasourceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatasourceCell.swift; sourceTree = "<group>"; };
+		7ABB976121E96FBF009D4384 /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		7ABB976221E96FBF009D4384 /* DefaultAppCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAppCollectionCell.swift; sourceTree = "<group>"; };
+		7ABB976321E96FBF009D4384 /* GroupedAppCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupedAppCollectionCell.swift; sourceTree = "<group>"; };
+		7ABB976421E96FBF009D4384 /* PreviewAppCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewAppCollectionCell.swift; sourceTree = "<group>"; };
+		7ABB976521E96FBF009D4384 /* GroupedAppCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupedAppCell.swift; sourceTree = "<group>"; };
+		7ABB976621E96FBF009D4384 /* FeaturedAppCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedAppCollectionCell.swift; sourceTree = "<group>"; };
+		7ABB976F21E96FCF009D4384 /* AppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
+		7ABB977021E96FCF009D4384 /* GamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
+		7ABB977121E96FCF009D4384 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		7ABB977221E96FCF009D4384 /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		7ABB977321E96FCF009D4384 /* UpdatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatesViewController.swift; sourceTree = "<group>"; };
+		7ABB977421E96FCF009D4384 /* AppDatasourceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDatasourceController.swift; sourceTree = "<group>"; };
+		7ABB977521E96FCF009D4384 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		7ABB977D21E97024009D4384 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7ABB977F21EBD904009D4384 /* PreviewAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewAppCell.swift; sourceTree = "<group>"; };
+		7ABB978121EBEBC4009D4384 /* Helpers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Helpers; sourceTree = "<group>"; };
 		7ABC604721D664E900F03A84 /* ReAppGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReAppGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABC604A21D664E900F03A84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7ABC605221D664E900F03A84 /* ReAppGames.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReAppGames.xcdatamodel; sourceTree = "<group>"; };
 		7ABC605421D664EB00F03A84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7ABC605721D664EB00F03A84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7ABC605921D664EB00F03A84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7ABC605E21D664EB00F03A84 /* ReAppGamesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReAppGamesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABC606221D664EB00F03A84 /* ReAppGamesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReAppGamesTests.swift; sourceTree = "<group>"; };
@@ -50,11 +84,9 @@
 		7ABC606921D664EB00F03A84 /* ReAppGamesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReAppGamesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABC606D21D664EB00F03A84 /* ReAppGamesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReAppGamesUITests.swift; sourceTree = "<group>"; };
 		7ABC606F21D664EB00F03A84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7ABC607E21D66A1300F03A84 /* HomeAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAppViewController.swift; sourceTree = "<group>"; };
 		7ABC608221D66E0800F03A84 /* FeaturedAppCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedAppCell.swift; sourceTree = "<group>"; };
 		7ABC608421D66E7700F03A84 /* AppDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatasource.swift; sourceTree = "<group>"; };
 		7ABC608621D66ECE00F03A84 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		7ABC608A21D6787800F03A84 /* GenericAppHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericAppHeaderCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,11 +137,12 @@
 		7ABC604921D664E900F03A84 /* ReAppGames */ = {
 			isa = PBXGroup;
 			children = (
+				7ABB978121EBEBC4009D4384 /* Helpers */,
 				7ABC607B21D6699200F03A84 /* Model */,
 				7ABC607C21D6699900F03A84 /* View */,
 				7ABC607D21D6699E00F03A84 /* Controller */,
 				7ABC604A21D664E900F03A84 /* AppDelegate.swift */,
-				7ABC605621D664EB00F03A84 /* LaunchScreen.storyboard */,
+				7ABB977D21E97024009D4384 /* LaunchScreen.storyboard */,
 				7ABC605421D664EB00F03A84 /* Assets.xcassets */,
 				7ABC605921D664EB00F03A84 /* Info.plist */,
 				7ABC605121D664E900F03A84 /* ReAppGames.xcdatamodeld */,
@@ -138,6 +171,7 @@
 		7ABC607B21D6699200F03A84 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7ABB975D21E96FB4009D4384 /* Datasource.swift */,
 				7ABC608421D66E7700F03A84 /* AppDatasource.swift */,
 				7ABC608621D66ECE00F03A84 /* App.swift */,
 			);
@@ -147,8 +181,16 @@
 		7ABC607C21D6699900F03A84 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7ABB976021E96FBF009D4384 /* DatasourceCell.swift */,
+				7ABB976621E96FBF009D4384 /* FeaturedAppCollectionCell.swift */,
 				7ABC608221D66E0800F03A84 /* FeaturedAppCell.swift */,
-				7ABC608A21D6787800F03A84 /* GenericAppHeaderCell.swift */,
+				7ABB976321E96FBF009D4384 /* GroupedAppCollectionCell.swift */,
+				7ABB976521E96FBF009D4384 /* GroupedAppCell.swift */,
+				7ABB976421E96FBF009D4384 /* PreviewAppCollectionCell.swift */,
+				7ABB977F21EBD904009D4384 /* PreviewAppCell.swift */,
+				7ABB976221E96FBF009D4384 /* DefaultAppCollectionCell.swift */,
+				7ABB976121E96FBF009D4384 /* HeaderCell.swift */,
+				7ABB975F21E96FBF009D4384 /* FeaturedCollectionCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -156,7 +198,13 @@
 		7ABC607D21D6699E00F03A84 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7ABC607E21D66A1300F03A84 /* HomeAppViewController.swift */,
+				7ABB977421E96FCF009D4384 /* AppDatasourceController.swift */,
+				7ABB976F21E96FCF009D4384 /* AppViewController.swift */,
+				7ABB977021E96FCF009D4384 /* GamesViewController.swift */,
+				7ABB977521E96FCF009D4384 /* SearchViewController.swift */,
+				7ABB977121E96FCF009D4384 /* TabBarController.swift */,
+				7ABB977221E96FCF009D4384 /* TodayViewController.swift */,
+				7ABB977321E96FCF009D4384 /* UpdatesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -265,7 +313,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ABC605821D664EB00F03A84 /* LaunchScreen.storyboard in Resources */,
+				7ABB978221EBEBC4009D4384 /* Helpers in Resources */,
+				7ABB977E21E97024009D4384 /* LaunchScreen.storyboard in Resources */,
 				7ABC605521D664EB00F03A84 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,12 +340,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ABB976C21E96FBF009D4384 /* PreviewAppCollectionCell.swift in Sources */,
 				7ABC608521D66E7700F03A84 /* AppDatasource.swift in Sources */,
+				7ABB977A21E96FCF009D4384 /* UpdatesViewController.swift in Sources */,
 				7ABC608721D66ECE00F03A84 /* App.swift in Sources */,
 				7ABC604B21D664E900F03A84 /* AppDelegate.swift in Sources */,
+				7ABB977721E96FCF009D4384 /* GamesViewController.swift in Sources */,
+				7ABB976A21E96FBF009D4384 /* DefaultAppCollectionCell.swift in Sources */,
+				7ABB976D21E96FBF009D4384 /* GroupedAppCell.swift in Sources */,
+				7ABB977B21E96FCF009D4384 /* AppDatasourceController.swift in Sources */,
 				7ABC605321D664E900F03A84 /* ReAppGames.xcdatamodeld in Sources */,
-				7ABC607F21D66A1300F03A84 /* HomeAppViewController.swift in Sources */,
-				7ABC608B21D6787800F03A84 /* GenericAppHeaderCell.swift in Sources */,
+				7ABB976E21E96FBF009D4384 /* FeaturedAppCollectionCell.swift in Sources */,
+				7ABB976B21E96FBF009D4384 /* GroupedAppCollectionCell.swift in Sources */,
+				7ABB977821E96FCF009D4384 /* TabBarController.swift in Sources */,
+				7ABB977C21E96FCF009D4384 /* SearchViewController.swift in Sources */,
+				7ABB976821E96FBF009D4384 /* DatasourceCell.swift in Sources */,
+				7ABB977921E96FCF009D4384 /* TodayViewController.swift in Sources */,
+				7ABB977621E96FCF009D4384 /* AppViewController.swift in Sources */,
+				7ABB976721E96FBF009D4384 /* FeaturedCollectionCell.swift in Sources */,
+				7ABB978021EBD904009D4384 /* PreviewAppCell.swift in Sources */,
+				7ABB975E21E96FB5009D4384 /* Datasource.swift in Sources */,
+				7ABB976921E96FBF009D4384 /* HeaderCell.swift in Sources */,
 				7ABC608321D66E0800F03A84 /* FeaturedAppCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,17 +395,6 @@
 			targetProxy = 7ABC606A21D664EB00F03A84 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		7ABC605621D664EB00F03A84 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7ABC605721D664EB00F03A84 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7ABC607021D664EB00F03A84 /* Debug */ = {

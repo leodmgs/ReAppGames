@@ -59,7 +59,8 @@ extension AppDatasourceController: UICollectionViewDelegateFlowLayout {
             collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(FeaturedAppCollectionCell.self), for: indexPath) as! FeaturedAppCollectionCell
         case 1:
             collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(GroupedAppCollectionCell.self), for: indexPath) as! GroupedAppCollectionCell
-            collectionCell.backgroundColor = .red
+        case 2:
+            collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(PreviewAppCollectionCell.self), for: indexPath) as! PreviewAppCollectionCell
         default:
             collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(DefaultAppCollectionCell.self), for: indexPath) as! DefaultAppCollectionCell
             if let cell = collectionCell as? DefaultAppCollectionCell {
@@ -78,10 +79,12 @@ extension AppDatasourceController: UICollectionViewDelegateFlowLayout {
         let collectionViewWidth = UIScreen.main.bounds.width
         var collectionViewHeight: CGFloat = 200 // Default cell height
         
-        if indexPath.section == 0 {
-            collectionViewHeight = 350
-        } else if indexPath.section == 1 {
+        if indexPath.section == 0 { // Featured section
+            collectionViewHeight = 330
+        } else if indexPath.section == 1 { // Grouped Section
             collectionViewHeight = 300
+        } else if indexPath.section == 2 { // Preview Section
+            collectionViewHeight = 350
         }
         
         return CGSize(width: collectionViewWidth, height: collectionViewHeight)
