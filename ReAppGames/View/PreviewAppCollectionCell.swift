@@ -15,7 +15,7 @@ class PreviewAppCollectionCell: DatasourceCell {
             //@FIXME
             guard let apps = appDatasourceItem as? [String] else { return }
             previewAppsCollection = apps
-            sectionTitle.text = "Get Productive"
+            sectionTitle.text = "Get Productive: 50% off with this offer"
         }
     }
     
@@ -38,9 +38,14 @@ class PreviewAppCollectionCell: DatasourceCell {
         
         addSubview(sectionTitle)
         sectionTitle.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
+        sectionTitle.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
         sectionTitle.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        sectionTitle.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        sectionTitle.numberOfLines = 2
+        sectionTitle.sizeToFit()
         
         setCollectionViewConstraints(constantLeft: 0, constantTop: 0, constantRight: 0, constantBottom: 0, leftAnchor: self.leftAnchor, topAnchor: sectionTitle.bottomAnchor, rightAnchor: self.rightAnchor, bottomAnchor: self.bottomAnchor)
+        
     }
     
 }
@@ -60,7 +65,7 @@ extension PreviewAppCollectionCell: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = UIScreen.main.bounds.width - 40
-        let cellHeight: CGFloat = 300
+        let cellHeight: CGFloat = 350
         return CGSize(width: cellWidth, height: cellHeight)
     }
     

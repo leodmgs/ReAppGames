@@ -27,7 +27,7 @@ class PreviewAppCell: UICollectionViewCell {
     let appNameCategory: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
+        label.numberOfLines = 3
         label.text = "App Name"
         return label
     }()
@@ -35,12 +35,6 @@ class PreviewAppCell: UICollectionViewCell {
     let actionButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .lightGray
-        button.setTitle("GET", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        button.titleLabel?.textAlignment = .center
-        button.layer.cornerRadius = 15
-        button.clipsToBounds = true
         return button
     }()
     
@@ -48,8 +42,23 @@ class PreviewAppCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 8)
-        label.textColor = UIColor.lightGray
+        label.textColor = UIColor.gray
         label.text = "In-App Purchases"
+        return label
+    }()
+    
+    let previewAppScreenImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.backgroundColor = .purple
+        return imageView
+    }()
+    
+    let appDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 15)
         return label
     }()
     
@@ -63,18 +72,19 @@ class PreviewAppCell: UICollectionViewCell {
     }
     
     func setupViews() {
-        backgroundColor = .yellow
-        
         addSubview(appIcon)
         addSubview(appNameCategory)
         addSubview(actionButton)
         addSubview(purchasesTextFlag)
+        addSubview(previewAppScreenImage)
+        addSubview(appDescriptionLabel)
         
         setupAppIconView()
         setupAppNameCategoryView()
         setupActionButtonView()
         setupInAppPurchasesView()
-        
+        setupPreviewAppScreenImage()
+        setupAppDescriptionView()
     }
     
     private func setupAppIconView() {
@@ -82,6 +92,7 @@ class PreviewAppCell: UICollectionViewCell {
         appIcon.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
         appIcon.widthAnchor.constraint(equalToConstant: 64).isActive = true
         appIcon.heightAnchor.constraint(equalToConstant: 64).isActive = true
+        appIcon.image = UIImage(named: "app-image-icon")
         appIcon.layer.cornerRadius = 15
         appIcon.clipsToBounds = true
         appIcon.layer.borderWidth = 0.25
@@ -91,20 +102,46 @@ class PreviewAppCell: UICollectionViewCell {
     private func setupAppNameCategoryView() {
         appNameCategory.leftAnchor.constraint(equalTo: appIcon.rightAnchor, constant: 5).isActive = true
         appNameCategory.centerYAnchor.constraint(equalTo: appIcon.centerYAnchor, constant: 0).isActive = true
+        appNameCategory.rightAnchor.constraint(equalTo: actionButton.leftAnchor, constant: -5).isActive = true
     }
     
     private func setupActionButtonView() {
+        let graySystem = UIColor(red: CGFloat(240.0/255), green: CGFloat(240.0/255), blue: CGFloat(240.0/255), alpha: 1)
+        let blueSystemDefault = UIColor(red: CGFloat(0.0), green: CGFloat(122.0/255), blue: CGFloat(1.0), alpha: 1)
+        
         actionButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0).isActive = true
         actionButton.widthAnchor.constraint(equalToConstant: 75).isActive = true
         actionButton.centerYAnchor.constraint(equalTo: appIcon.centerYAnchor, constant: 0).isActive = true
-        
-        let blueSystemDefault = UIColor(red: CGFloat(0.0), green: CGFloat(122.0/255), blue: CGFloat(1.0), alpha: 1)
+        actionButton.backgroundColor = graySystem
+        actionButton.setTitle("GET", for: .normal)
+        actionButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.bold)
+        actionButton.titleLabel?.textAlignment = .center
+        actionButton.layer.cornerRadius = 15
+        actionButton.clipsToBounds = true
         actionButton.setTitleColor(blueSystemDefault, for: .normal)
     }
     
     private func setupInAppPurchasesView() {
         purchasesTextFlag.topAnchor.constraint(equalTo: actionButton.bottomAnchor, constant: 5).isActive = true
         purchasesTextFlag.centerXAnchor.constraint(equalTo: actionButton.centerXAnchor, constant: 0).isActive = true
+    }
+    
+    private func setupPreviewAppScreenImage() {
+        previewAppScreenImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0).isActive = true
+        previewAppScreenImage.topAnchor.constraint(equalTo: appIcon.bottomAnchor, constant: 15).isActive = true
+        previewAppScreenImage.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive = true
+        previewAppScreenImage.bottomAnchor.constraint(equalTo: appDescriptionLabel.topAnchor, constant: -5).isActive = true
+        previewAppScreenImage.image = UIImage(named: "app-screens")
+        previewAppScreenImage.layer.cornerRadius = 10
+        previewAppScreenImage.clipsToBounds = true
+    }
+    
+    private func setupAppDescriptionView() {
+        appDescriptionLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0).isActive = true
+        appDescriptionLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0).isActive = true
+        appDescriptionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5).isActive = true
+        appDescriptionLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        appDescriptionLabel.text = "Get 50% off Images Pro! Access million or images with this limited-time subscription offer."
     }
     
     private func attributedAppNameAndCategory(name: String, category: String) -> NSAttributedString {

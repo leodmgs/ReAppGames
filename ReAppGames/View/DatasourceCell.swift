@@ -34,7 +34,6 @@ class DatasourceCell: UICollectionViewCell {
     let separatorLine: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        //view.backgroundColor = UIColor(red: CGFloat(220.0/255), green: CGFloat(220.0/255), blue: CGFloat(220.0/255), alpha: 1)
         view.backgroundColor = .lightGray
         return view
     }()

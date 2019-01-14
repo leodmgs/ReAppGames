@@ -14,8 +14,8 @@ class AppDatasource: Datasource {
     
     var dataApp: [[String]] = [
         ["Twitter", "Whatsapp", "Instagram", "Youtube", "Uber"],
-        ["Runastic", "Lifesum", "Pocket", "Facetune", "TouchRetouch", "Afterlight", "Full Fitness", "Coursera", "English", "LinkedIn", "Nike", "IFood"],
-        ["Duolingo", "Udemy", "Udacity"]
+        ["Runastic", "Lifesum", "Pocket", "Facetune", "TouchRetouch", "Afterlight", "Full Fitness", "Coursera", "English", "LinkedIn", "Nike"],
+        ["Canva: Logo & invitation maker", "Duolingo", "Udemy", "Udacity"]
     ]
     
     let availableCellClasses: [DatasourceCell.Type] = [

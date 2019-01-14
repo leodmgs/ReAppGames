@@ -84,7 +84,7 @@ extension AppDatasourceController: UICollectionViewDelegateFlowLayout {
         } else if indexPath.section == 1 { // Grouped Section
             collectionViewHeight = 300
         } else if indexPath.section == 2 { // Preview Section
-            collectionViewHeight = 350
+            collectionViewHeight = 420
         }
         
         return CGSize(width: collectionViewWidth, height: collectionViewHeight)
