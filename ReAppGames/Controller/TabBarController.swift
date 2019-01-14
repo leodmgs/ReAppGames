@@ -27,7 +27,7 @@ class TabBarController: UITabBarController {
         gamesViewNavigationController.tabBarItem.image = UIImage(named: "games")
         
         let appFlowLayout = UICollectionViewFlowLayout()
-        let appViewController = AppViewController(collectionViewLayout: appFlowLayout)
+        let appViewController = AppDatasourceController(collectionViewLayout: appFlowLayout)
         appViewController.navigationItem.title = "Apps"
         let appViewNavigationController = UINavigationController(rootViewController: appViewController)
         appViewNavigationController.title = "Apps"
