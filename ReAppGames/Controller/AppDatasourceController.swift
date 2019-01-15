@@ -11,7 +11,7 @@ import UIKit
 class AppDatasourceController: UICollectionViewController {
 
     
-    let displayAppsByCategoryOrder = ["Featured", "Grouped", "Preview"]
+    let displayAppsByCategoryOrder = ["Header", "Featured", "Grouped", "Preview", "Preview"]
     
     var datasource: Datasource? {
         didSet {
@@ -32,6 +32,7 @@ class AppDatasourceController: UICollectionViewController {
     
     func setupViews() {
         collectionView.backgroundColor = .white
+        collectionView.register(HeaderCell.self, forCellWithReuseIdentifier: NSStringFromClass(HeaderCell.self))
     }
     
 }
@@ -56,10 +57,14 @@ extension AppDatasourceController: UICollectionViewDelegateFlowLayout {
         
         switch indexPath.section {
         case 0:
-            collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(FeaturedAppCollectionCell.self), for: indexPath) as! FeaturedAppCollectionCell
+            let headerCell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(HeaderCell.self), for: indexPath) as! HeaderCell
+            headerCell.titleLabel.text = "Apps"
+            return headerCell
         case 1:
-            collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(GroupedAppCollectionCell.self), for: indexPath) as! GroupedAppCollectionCell
+            collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(FeaturedAppCollectionCell.self), for: indexPath) as! FeaturedAppCollectionCell
         case 2:
+            collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(GroupedAppCollectionCell.self), for: indexPath) as! GroupedAppCollectionCell
+        case 3:
             collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(PreviewAppCollectionCell.self), for: indexPath) as! PreviewAppCollectionCell
         default:
             collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(DefaultAppCollectionCell.self), for: indexPath) as! DefaultAppCollectionCell
@@ -69,8 +74,9 @@ extension AppDatasourceController: UICollectionViewDelegateFlowLayout {
         }
         
         collectionCell.controller = self
-        collectionCell.appDatasourceItem = datasource?.item(indexPath)
-        
+        if let dataItem = datasource?.item(indexPath) {
+            collectionCell.appDatasourceItem = dataItem
+        }
         return collectionCell
     }
     
@@ -79,11 +85,13 @@ extension AppDatasourceController: UICollectionViewDelegateFlowLayout {
         let collectionViewWidth = UIScreen.main.bounds.width
         var collectionViewHeight: CGFloat = 200 // Default cell height
         
-        if indexPath.section == 0 { // Featured section
+        if indexPath.section == 0 { // Header cell at the top
+            collectionViewHeight = 60
+        } else if indexPath.section == 1 { // Featured section
             collectionViewHeight = 330
-        } else if indexPath.section == 1 { // Grouped Section
+        } else if indexPath.section == 2 { // Grouped Section
             collectionViewHeight = 330
-        } else if indexPath.section == 2 { // Preview Section
+        } else if indexPath.section == 3 { // Preview Section
             collectionViewHeight = 420
         }
         

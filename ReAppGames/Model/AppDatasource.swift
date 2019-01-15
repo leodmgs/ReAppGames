@@ -13,6 +13,7 @@ class AppDatasource: Datasource {
     // Attributes
     
     var dataApp: [[String]] = [
+        [],
         ["Twitter", "Whatsapp", "Instagram", "Youtube", "Uber"],
         ["Fitplan: Gyn & Home Workouts", "SoSweat: Home Fitness & Coach", "Back Pain Relief - Kaia", "Facetune", "TouchRetouch", "Afterlight", "Full Fitness", "Coursera", "English", "LinkedIn", "Nike"],
         ["Canva: Logo & invitation maker", "Duolingo", "Udemy", "Udacity"]
@@ -39,7 +40,10 @@ class AppDatasource: Datasource {
     }
     
     override func item(_ indexPath: IndexPath) -> Any? {
-        return dataApp[indexPath.section]
+        if indexPath.section < dataApp.count {
+            return dataApp[indexPath.section]
+        }
+        return nil
     }
     
 }

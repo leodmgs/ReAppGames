@@ -13,7 +13,6 @@ class HeaderCell: UICollectionViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Header"
         label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
         return label
     }()
@@ -22,7 +21,7 @@ class HeaderCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "steve-jobs")
-        imageView.layer.cornerRadius = 24
+        imageView.layer.cornerRadius = 21
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -38,9 +37,9 @@ class HeaderCell: UICollectionViewCell {
         titleLabel.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         userImageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
-        userImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
-        userImageView.widthAnchor.constraint(equalToConstant: 48).isActive = true
-        userImageView.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        userImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5).isActive = true
+        userImageView.widthAnchor.constraint(equalToConstant: 42).isActive = true
+        userImageView.heightAnchor.constraint(equalToConstant: 42).isActive = true
         
     }
     
