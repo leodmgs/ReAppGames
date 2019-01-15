@@ -14,7 +14,7 @@ class AppDatasource: Datasource {
     
     var dataApp: [[String]] = [
         ["Twitter", "Whatsapp", "Instagram", "Youtube", "Uber"],
-        ["Runastic", "Lifesum", "Pocket", "Facetune", "TouchRetouch", "Afterlight", "Full Fitness", "Coursera", "English", "LinkedIn", "Nike"],
+        ["Fitplan: Gyn & Home Workouts", "SoSweat: Home Fitness & Coach", "Back Pain Relief - Kaia", "Facetune", "TouchRetouch", "Afterlight", "Full Fitness", "Coursera", "English", "LinkedIn", "Nike"],
         ["Canva: Logo & invitation maker", "Duolingo", "Udemy", "Udacity"]
     ]
     

@@ -82,7 +82,7 @@ extension AppDatasourceController: UICollectionViewDelegateFlowLayout {
         if indexPath.section == 0 { // Featured section
             collectionViewHeight = 330
         } else if indexPath.section == 1 { // Grouped Section
-            collectionViewHeight = 300
+            collectionViewHeight = 330
         } else if indexPath.section == 2 { // Preview Section
             collectionViewHeight = 420
         }
