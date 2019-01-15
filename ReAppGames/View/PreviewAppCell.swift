@@ -148,7 +148,7 @@ class PreviewAppCell: UICollectionViewCell {
         let appName = "\(name)\n"
         let attributedText = NSMutableAttributedString(string: appName, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)])
         
-        attributedText.append(NSAttributedString(string: category, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12), NSAttributedString.Key.foregroundColor: UIColor.lightGray]))
+        attributedText.append(NSAttributedString(string: category, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.lightGray]))
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 3
