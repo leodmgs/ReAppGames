@@ -28,9 +28,8 @@ class TabBarController: UITabBarController {
         
         let appFlowLayout = UICollectionViewFlowLayout()
         let appViewController = AppDatasourceController(collectionViewLayout: appFlowLayout)
-        appViewController.navigationItem.title = "Apps"
         let appViewNavigationController = UINavigationController(rootViewController: appViewController)
-        appViewNavigationController.title = "Apps"
+        appViewNavigationController.title = "Apps" // displayed in the tab bar below the icon
         appViewNavigationController.tabBarItem.image = UIImage(named: "apps")
         
         let updatesViewController = UpdatesViewController()

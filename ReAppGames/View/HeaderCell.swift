@@ -33,11 +33,10 @@ class HeaderCell: UICollectionViewCell {
         addSubview(userImageView)
         
         titleLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
-        titleLabel.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: userImageView.topAnchor, constant: 9).isActive = true
         
         userImageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
-        userImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5).isActive = true
+        userImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 1).isActive = true
         userImageView.widthAnchor.constraint(equalToConstant: 42).isActive = true
         userImageView.heightAnchor.constraint(equalToConstant: 42).isActive = true
         

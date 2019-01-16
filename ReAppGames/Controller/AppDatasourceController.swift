@@ -12,6 +12,7 @@ class AppDatasourceController: UICollectionViewController {
 
     
     let displayAppsByCategoryOrder = ["Header", "Featured", "Grouped", "Preview", "Preview"]
+    let separatorLineNavBarLayer = CALayer()
     
     var datasource: Datasource? {
         didSet {
@@ -33,6 +34,45 @@ class AppDatasourceController: UICollectionViewController {
     func setupViews() {
         collectionView.backgroundColor = .white
         collectionView.register(HeaderCell.self, forCellWithReuseIdentifier: NSStringFromClass(HeaderCell.self))
+        setupNavigationBar()
+    }
+    
+    private func setupNavigationBar() {
+        guard let navBar = navigationController?.navigationBar else { return }
+        navBar.isTranslucent = false
+        navBar.tintColor = .white
+        
+        let screenWidth = UIScreen.main.bounds.width
+        let navHeightSize = navBar.layer.bounds.height
+        
+        separatorLineNavBarLayer.bounds = CGRect(x: 0, y: 0, width: screenWidth, height: 0.5)
+        separatorLineNavBarLayer.backgroundColor = UIColor.white.cgColor
+        separatorLineNavBarLayer.anchorPoint = CGPoint(x: 0, y: 0)
+        separatorLineNavBarLayer.position = CGPoint(x: 0, y: navHeightSize)
+        
+        navBar.layer.addSublayer(separatorLineNavBarLayer)
+        
+        let titleNavBar = UILabel()
+        titleNavBar.text = "Apps"
+        titleNavBar.font = UIFont.boldSystemFont(ofSize: 16)
+        
+        navigationItem.titleView = titleNavBar
+        navigationItem.titleView?.alpha = 0
+        
+    }
+    
+    private func enableNavBarViews() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.navigationItem.titleView?.alpha = 1
+        })
+        self.separatorLineNavBarLayer.backgroundColor = UIColor.lightGray.cgColor
+    }
+    
+    private func disableNavBarViews() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.navigationItem.titleView?.alpha = 0
+        })
+        self.separatorLineNavBarLayer.backgroundColor = UIColor.white.cgColor
     }
     
 }
@@ -86,7 +126,7 @@ extension AppDatasourceController: UICollectionViewDelegateFlowLayout {
         var collectionViewHeight: CGFloat = 200 // Default cell height
         
         if indexPath.section == 0 { // Header cell at the top
-            collectionViewHeight = 60
+            collectionViewHeight = 45
         } else if indexPath.section == 1 { // Featured section
             collectionViewHeight = 330
         } else if indexPath.section == 2 { // Grouped Section
@@ -101,6 +141,18 @@ extension AppDatasourceController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            disableNavBarViews()
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            enableNavBarViews()
+        }
     }
     
 }
