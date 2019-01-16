@@ -17,6 +17,7 @@ class FeaturedAppCollectionCell: DatasourceCell {
         }
     }
     
+    private var startingScrollingOffset = CGPoint.zero
     var featuredAppsDatasource: [String] = []
     
     override init(frame: CGRect) {
@@ -39,7 +40,7 @@ class FeaturedAppCollectionCell: DatasourceCell {
 }
 
 
-extension FeaturedAppCollectionCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension FeaturedAppCollectionCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return featuredAppsDatasource.count
@@ -63,6 +64,39 @@ extension FeaturedAppCollectionCell: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 20, bottom: 75, right: 20)
+    }
+    
+    //@FIXME
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        startingScrollingOffset = scrollView.contentOffset
+    }
+    
+    //@FIXME
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        let cellWidth = collectionView(
+            appCollectionView,
+            layout: appCollectionView.collectionViewLayout,
+            sizeForItemAt: IndexPath(item: 0, section: 0)
+            ).width
+        
+        let page: CGFloat
+        let offset = scrollView.contentOffset.x + scrollView.contentInset.left
+        let proposedPage = offset / max(1, cellWidth)
+        let snapPoint: CGFloat = 0.1
+        let snapDelta: CGFloat = offset > startingScrollingOffset.x ? (1 - snapPoint) : snapPoint
+        
+        if floor(proposedPage + snapDelta) == floor(proposedPage) {
+            page = floor(proposedPage)
+        }
+        else {
+            page = floor(proposedPage + 1)
+        }
+        
+        targetContentOffset.pointee = CGPoint(
+            x: (cellWidth * page) + (page * 10),
+            y: targetContentOffset.pointee.y
+        )
     }
     
 }

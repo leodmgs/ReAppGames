@@ -48,14 +48,7 @@ class DatasourceCell: UICollectionViewCell {
     }
     
     func setupViews() {
-        addSubview(appCollectionView)
-//        addSubview(separatorLine)
-//        
-//        separatorLine.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
-//        separatorLine.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
-//        separatorLine.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
-//        separatorLine.heightAnchor.constraint(equalToConstant: 0.3).isActive = true
-        
+        addSubview(appCollectionView)   
     }
     
     func setCollectionViewConstraints(constantLeft: CGFloat, constantTop: CGFloat, constantRight: CGFloat, constantBottom: CGFloat, leftAnchor: NSLayoutAnchor<NSLayoutXAxisAnchor>, topAnchor: NSLayoutAnchor<NSLayoutYAxisAnchor>, rightAnchor: NSLayoutAnchor<NSLayoutXAxisAnchor>, bottomAnchor: NSLayoutAnchor<NSLayoutYAxisAnchor>) {
