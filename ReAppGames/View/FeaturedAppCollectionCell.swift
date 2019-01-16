@@ -19,13 +19,6 @@ class FeaturedAppCollectionCell: DatasourceCell {
     
     var featuredAppsDatasource: [String] = []
     
-    let appNameLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 14)
-        return label
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -37,19 +30,10 @@ class FeaturedAppCollectionCell: DatasourceCell {
     
     override func setupViews() {
         super.setupViews()
-        
         appCollectionView.register(FeaturedAppCell.self, forCellWithReuseIdentifier: NSStringFromClass(FeaturedAppCell.self))
         appCollectionView.delegate = self
         appCollectionView.dataSource = self
-        setCollectionViewConstraints(constantLeft: 0, constantTop: 0, constantRight: 0, constantBottom: 0, leftAnchor: self.leftAnchor, topAnchor: self.topAnchor, rightAnchor: self.rightAnchor, bottomAnchor: self.bottomAnchor)
-        
-        addSubview(appNameLabel)
-        
-        appNameLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        appNameLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        appNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive = true
-        appNameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0).isActive = true
-        
+        setCollectionViewConstraints(constantLeft: 0, constantTop: 15, constantRight: 0, constantBottom: 0, leftAnchor: self.leftAnchor, topAnchor: self.topAnchor, rightAnchor: self.rightAnchor, bottomAnchor: self.bottomAnchor)
     }
     
 }
@@ -78,7 +62,7 @@ extension FeaturedAppCollectionCell: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        return UIEdgeInsets(top: 0, left: 20, bottom: 75, right: 20)
     }
     
 }

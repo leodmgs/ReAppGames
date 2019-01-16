@@ -123,16 +123,14 @@ extension AppDatasourceController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = UIScreen.main.bounds.width
-        var collectionViewHeight: CGFloat = 200 // Default cell height
+        var collectionViewHeight: CGFloat = 100 // Default cell height
         
         if indexPath.section == 0 { // Header cell at the top
             collectionViewHeight = 45
-        } else if indexPath.section == 1 { // Featured section
-            collectionViewHeight = 330
-        } else if indexPath.section == 2 { // Grouped Section
-            collectionViewHeight = 330
+        } else if indexPath.section == 1 || indexPath.section == 2 { // Featured and Grouped section
+            collectionViewHeight = 340
         } else if indexPath.section == 3 { // Preview Section
-            collectionViewHeight = 420
+            collectionViewHeight = 450
         }
         
         return CGSize(width: collectionViewWidth, height: collectionViewHeight)
@@ -140,7 +138,7 @@ extension AppDatasourceController: UICollectionViewDelegateFlowLayout {
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
