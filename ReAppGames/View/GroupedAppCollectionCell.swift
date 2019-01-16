@@ -31,14 +31,23 @@ class GroupedAppCollectionCell: DatasourceCell {
     
     override func setupViews() {
         super.setupViews()
+        addSubview(separatorLine)
         addSubview(sectionTitle)
+        setupSeparatorLine()
         setupSectionTitleView()
         setupGroupedCollectionView()
     }
     
+    private func setupSeparatorLine() {
+        separatorLine.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
+        separatorLine.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
+        separatorLine.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        separatorLine.heightAnchor.constraint(equalToConstant: 0.3).isActive = true
+    }
+    
     private func setupSectionTitleView() {
         sectionTitle.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
-        sectionTitle.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        sectionTitle.topAnchor.constraint(equalTo: self.separatorLine.bottomAnchor, constant: 10).isActive = true
         sectionTitle.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
         sectionTitle.numberOfLines = 2
     }
@@ -84,7 +93,7 @@ extension GroupedAppCollectionCell: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 20, bottom: 30, right: 20)
+        return UIEdgeInsets(top: 10, left: 20, bottom: 25, right: 20)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

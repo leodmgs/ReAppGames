@@ -36,16 +36,29 @@ class PreviewAppCollectionCell: DatasourceCell {
         appCollectionView.delegate = self
         appCollectionView.dataSource = self
         
+        addSubview(separatorLine)
         addSubview(sectionTitle)
-        sectionTitle.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
-        sectionTitle.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
-        sectionTitle.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
-        sectionTitle.heightAnchor.constraint(equalToConstant: 55).isActive = true
-        sectionTitle.numberOfLines = 2
-        sectionTitle.sizeToFit()
+        setupSeparatorLine()
+        setupSectionTitleView()
         
         setCollectionViewConstraints(constantLeft: 0, constantTop: 0, constantRight: 0, constantBottom: 0, leftAnchor: self.leftAnchor, topAnchor: sectionTitle.bottomAnchor, rightAnchor: self.rightAnchor, bottomAnchor: self.bottomAnchor)
         
+    }
+    
+    private func setupSeparatorLine() {
+        separatorLine.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
+        separatorLine.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
+        separatorLine.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        separatorLine.heightAnchor.constraint(equalToConstant: 0.3).isActive = true
+    }
+    
+    private func setupSectionTitleView() {
+        sectionTitle.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
+        sectionTitle.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
+        sectionTitle.topAnchor.constraint(equalTo: separatorLine.bottomAnchor, constant: 9.7).isActive = true
+        sectionTitle.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        sectionTitle.numberOfLines = 2
+        sectionTitle.sizeToFit()
     }
     
 }
@@ -70,7 +83,7 @@ extension PreviewAppCollectionCell: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        return UIEdgeInsets(top: 10, left: 20, bottom: 25, right: 20)
     }
     
 }

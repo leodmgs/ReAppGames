@@ -27,7 +27,7 @@ class FeaturedAppCell: UICollectionViewCell {
     let thumbnailImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .orange
+        imageView.image = UIImage(named: "featured-apps")
         imageView.contentMode = .scaleToFill
         imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true
@@ -60,7 +60,7 @@ class FeaturedAppCell: UICollectionViewCell {
         separatorLine.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
         separatorLine.heightAnchor.constraint(equalToConstant: 0.7).isActive = true
         
-        titleLabel.topAnchor.constraint(equalTo: separatorLine.bottomAnchor, constant: 5).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: separatorLine.bottomAnchor, constant: 10).isActive = true
         
         thumbnailImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0).isActive = true
         thumbnailImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
